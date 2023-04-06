@@ -26,18 +26,30 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(VisibleAnywhere)
 	class UStaticMeshComponent* MeshComponent;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(VisibleAnywhere)
 	class UCameraComponent* Camera;
 
 	UPROPERTY(EditAnywhere)
-		FVector CurrentVelocity;
+	FVector CurrentVelocity;
 
 	UPROPERTY(EditAnywhere)
-		float MaxSpeed;
+	float MaxSpeed;
 
+	UPROPERTY(EditAnywhere)
+	class USphereComponent* SphereComp;
+
+	UPROPERTY(EditAnywhere)
+	class USpringArmComponent* SprintArmComp;
+
+#if 1
+	UPROPERTY(VisibleAnywhere)
+	class UMyMovementComponent* MovementComp;
+
+	virtual UPawnMovementComponent* GetMovementComponent() const override;
+#endif
 private:
 	void MoveForward(float Value);//Ç°ºó
 	void MoveRight(float Value);//×óÓÒ
